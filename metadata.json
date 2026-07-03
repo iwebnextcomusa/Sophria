@@ -1,0 +1,6 @@
+{
+  "name": "Sophria Premium Flooring",
+  "description": "Premium residential and commercial flooring installation contractor in Hamilton, Ontario and surrounding areas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
