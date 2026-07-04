@@ -245,7 +245,7 @@ export default function App() {
                       loop
                       playsInline
                       poster="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=80"
-                      className="w-full h-full object-cover object-center opacity-30"
+                      className="w-full h-full object-cover object-center opacity-15"
                     >
                       <source 
                         src="https://pbwbswkk2pcfhrwv.public.blob.vercel-storage.com/Sophria.mp4" 
