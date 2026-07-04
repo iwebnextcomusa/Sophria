@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, Star, 
   ShieldCheck, Trash2, Wrench, Sparkles, Layers, Hammer, Menu, 
-  X, ChevronUp, Grid, Award, Check, Calendar, ArrowUpRight, HelpCircle
+  X, ChevronUp, Grid, Award, Check, Calendar, ArrowUpRight, HelpCircle,
+  Volume2, VolumeX
 } from "lucide-react";
 
 import { SERVICES, PROJECTS, TESTIMONIALS, FAQS, SERVICE_AREAS } from "./data";
@@ -18,6 +19,16 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const [showLeadModal, setShowLeadModal] = useState<boolean>(false);
+  const [isVideoMuted, setIsVideoMuted] = useState<boolean>(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      const nextMuted = !isVideoMuted;
+      videoRef.current.muted = nextMuted;
+      setIsVideoMuted(nextMuted);
+    }
+  };
   
   // Gallery state
   const [galleryCategory, setGalleryCategory] = useState<string>("All");
@@ -240,12 +251,13 @@ export default function App() {
                 <section className="relative min-h-[92vh] md:min-h-[85vh] flex items-center justify-center px-4 md:px-8 py-16 overflow-hidden">
                   <div className="absolute inset-0 z-0">
                     <video
+                      ref={videoRef}
                       autoPlay
-                      muted
+                      muted={isVideoMuted}
                       loop
                       playsInline
                       poster="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=80"
-                      className="w-full h-full object-cover object-center opacity-15"
+                      className="w-full h-full object-cover object-center opacity-50"
                     >
                       <source 
                         src="https://pbwbswkk2pcfhrwv.public.blob.vercel-storage.com/Sophria.mp4" 
@@ -260,6 +272,22 @@ export default function App() {
                       />
                     </video>
                     <div className="absolute inset-0 bg-gradient-to-t from-wood-charcoal via-wood-charcoal/80 to-wood-charcoal/40" />
+                  </div>
+
+                  {/* Audio Toggle Button */}
+                  <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 z-20">
+                    <button
+                      onClick={toggleMute}
+                      className="p-3 bg-wood-dark/80 hover:bg-wood-dark border border-luxury-gold/30 hover:border-luxury-gold text-white hover:text-luxury-gold rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 flex items-center justify-center cursor-pointer group hover:scale-105"
+                      aria-label={isVideoMuted ? "Unmute Video" : "Mute Video"}
+                      title={isVideoMuted ? "Unmute Video" : "Mute Video"}
+                    >
+                      {isVideoMuted ? (
+                        <VolumeX className="w-4.5 h-4.5 text-gray-400 group-hover:text-luxury-gold transition-colors" />
+                      ) : (
+                        <Volume2 className="w-4.5 h-4.5 text-luxury-gold" />
+                      )}
+                    </button>
                   </div>
 
                   <div className="max-w-4xl text-center relative z-10 space-y-8 px-4">
