@@ -244,11 +244,11 @@ export default function App() {
                       muted
                       loop
                       playsInline
-                      poster="https://pbwbswkk2pcfhrwv.public.blob.vercel-storage.com/Sophria.mp4"
+                      poster="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=80"
                       className="w-full h-full object-cover object-center opacity-30"
                     >
                       <source 
-                        src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054ba2740c210ca3302ab20e2e50cf9&profile_id=139&oauth2_token_id=57447761" 
+                        src="https://pbwbswkk2pcfhrwv.public.blob.vercel-storage.com/Sophria.mp4" 
                         type="video/mp4" 
                       />
                       {/* Image fallback if browser prevents auto-play video */}
