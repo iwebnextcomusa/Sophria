@@ -244,7 +244,7 @@ export default function App() {
                       muted
                       loop
                       playsInline
-                      poster="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1600&q=80"
+                      poster="https://pbwbswkk2pcfhrwv.public.blob.vercel-storage.com/Sophria.mp4"
                       className="w-full h-full object-cover object-center opacity-30"
                     >
                       <source 
